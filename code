@@ -1,0 +1,42 @@
+t = int(input())
+for i in range(t):
+    string = ''
+    r = int(input())
+    s = input()
+    # graph={}
+    s = s.lower()
+    list = [s[0]]
+    list1 = []
+    for i in s:
+        if i not in list:
+            list.append(i)
+            # graph[i]=[]
+
+    # key_list=list(graph.key())
+    for i in list:
+        list1.append(0)
+    for i in s:
+        if i in list:
+            id = list.index(i)
+            list1[id] += 1
+    # list.sort()
+    # list1.sort()
+    list2 = []
+    c=0
+    # print("list",list)
+    # print("list 1",list1)
+    for i in range(len(list1)):
+        a=list1[i]//r
+        if list1[i] % r == 0:
+            list2.append(list1[i]// r)
+            string=string+list[i]*a
+        else:
+            print("-1")
+            c=1
+            break
+
+    if c==1:
+        continue
+    a = ''.join(sorted(string))
+    string=a*r
+    print(string)
